@@ -1,3 +1,32 @@
 <p>
-  products works!
+  <a routerLink="/product-form" class="btn btn-primary">Add New Product</a>
 </p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Rating</th>
+      <th>Seller</th>
+      <th>Warranty</th>
+    </tr>
+  </thead>
+  <tbody>
+      <!-- <ul>
+          <li *ngFor='let item of products$ | async'>{{ item }}</li>
+        </ul> -->
+    <!-- <tr *ngFor="let p of products$ | async"> -->
+        <tr *ngFor="let p of products$ | async">
+      <td>{{ p.name }}</td>
+      <td>{{ p.description }}</td>
+      <td>{{ p.price }}</td>
+      <td>{{ p.rating }}</td>
+      <td>{{ p.seller }}</td>
+      <td>{{ p.warranty }}</td>
+      <td>
+        <a [routerLink]="['/product-form/', p.name]">Edit</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

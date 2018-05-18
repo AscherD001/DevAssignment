@@ -1,0 +1,52 @@
+<form #f="ngForm" (ngSubmit)="save(f.value)">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input #name="ngModel" ngModel name="name" id="name" type="text" class="form-control" required>
+    <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+      Product Name is Required.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input #description="ngModel" ngModel name="description" id="description" type="text" class="form-control" required>
+    <div class="alert alert-danger" *ngIf="description.touched && description.invalid">
+      Product Description is Required.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="price">Price</label>
+    <div class="input-group-prepend">
+      <span class="input-group-text">$</span>
+      <input #price="ngModel" ngModel name="price" id="price" type="number" class="form-control" required [min]="0">
+    </div>
+    <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
+      <div *ngIf="price.errors.required">Product Price is Required.</div>
+      <div *ngIf="price.errors.min">Product Price Must be 0 or Higher.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="rating">Rating</label>
+    <div class="input-group-append">
+      <input #rating="ngModel" ngModel name="rating" id="rating" type="number" class="form-control" required>
+      <span class="input-group-text">/10</span>
+    </div>
+    <div class="alert alert-danger" *ngIf="rating.touched && rating.invalid">
+      Product Rating is Required.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="seller">Seller</label>
+    <input #seller="ngModel" ngModel name="seller" id="seller" type="text" class="form-control" required>
+    <div class="alert alert-danger" *ngIf="seller.touched && seller.invalid">
+      Product Seller is Required.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="warranty">Warranty</label>
+    <input #warranty="ngModel" ngModel name="warranty" id="warranty" type="text" class="form-control" required>
+    <div class="alert alert-danger" *ngIf="warranty.touched && warranty.invalid">
+      Product Warranty is Required.
+    </div>
+  </div>
+  <button class="btn btn-primary">Save</button>
+</form>
